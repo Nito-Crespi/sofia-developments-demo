@@ -1,0 +1,7 @@
+.themeToggleButton {
+  transition: transform 0.2s ease;
+}
+
+.themeToggleButton:hover {
+  transform: rotate(45deg);
+}

@@ -16,6 +16,9 @@ export default function AppHeader() {
   const session = useAuthStore((s) => s.session);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  const appVersion =
+    typeof __APP_VERSION__ !== "undefined" ? __APP_VERSION__ : "";
+
   return (
     <>
       <Header
@@ -34,7 +37,12 @@ export default function AppHeader() {
         }}
         id="app-header"
       >
-        <Text style={{ color: token.colorText }}>{APP_DISPLAY_NAME}</Text>
+        <Space size={8} align="center">
+          <Text style={{ color: token.colorText }}>
+            {APP_DISPLAY_NAME}
+            {appVersion ? ` - v${appVersion}` : ""}
+          </Text>
+        </Space>
 
         <Space>
           {/* TODO: Hay que hacer que cada icon este separado por un '|' que la solucion sea mas elegante que hardcodearlo a mano */}

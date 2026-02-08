@@ -1,28 +1,27 @@
 import { ConfigProvider, Layout, theme } from "antd";
-import Dashboard from "./layout/Dashboard";
-import Login from "./pages/Login";
-import { useAuthStore } from "./store/authStore";
 import AppHeader from "./layout/AppHeader";
 import { useThemeStore } from "./store/themeStore";
+import { darkTheme, lightTheme } from "./theme/token";
+import AppRoutes from "./routes/Routes";
 
 const { Content } = Layout;
 
 export default function App() {
-  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
-  const session = useAuthStore((s) => s.session);
   const mode = useThemeStore((s) => s.mode);
-
-  const authed = session && isAuthenticated();
-
-  const algorithm =
-    mode === "dark" ? theme.darkAlgorithm : theme.defaultAlgorithm;
+  const isDark = mode === "dark";
 
   return (
-    <ConfigProvider theme={{ algorithm }}>
+    <ConfigProvider
+      theme={{
+        algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm,
+        token: isDark ? darkTheme.token : lightTheme.token,
+      }}
+    >
       <Layout style={{ minHeight: "100vh" }}>
         <AppHeader />
-
-        <Content>{authed ? <Dashboard /> : <Login />}</Content>
+        <Content>
+          <AppRoutes />
+        </Content>
       </Layout>
     </ConfigProvider>
   );

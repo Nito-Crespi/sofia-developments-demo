@@ -3,8 +3,8 @@ import { UserOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import ThemeToggle from "../components/theme/ThemeToggle";
 import UserDrawer from "../components/user/UserDrawer";
-import { useAuthStore } from "../store/authStore";
 import WeatherBadge from "../components/weather/WeatherBadge";
+import { useAuthStore } from "../modules/auth/store/authStore";
 
 const { Header } = Layout;
 const { Text } = Typography;

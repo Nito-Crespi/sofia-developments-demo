@@ -1,7 +1,7 @@
 {
   "name": "sofia-developments-demo",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "antd": "^6.2.2",
+    "dayjs": "^1.11.10",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "zustand": "^5.0.10"

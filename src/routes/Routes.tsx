@@ -1,7 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../layout/Dashboard";
-import ProjectsPage from "../modules/project/pages/ProjectsPage";
 import Login from "../modules/auth/pages/Login";
 import { useAuthStore } from "../modules/auth/store/authStore";
 import ProjectsKanbanPage from "../modules/kanban/ProjectsKanbanPage";

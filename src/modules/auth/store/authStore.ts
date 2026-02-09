@@ -1,6 +1,9 @@
 import { create } from "zustand";
-import type { MenuKey, UserRole } from "../data/usersDb";
-import { validateCredentials } from "../data/usersDb";
+import {
+  validateCredentials,
+  type MenuKey,
+  type UserRole,
+} from "../../../data/usersDb";
 
 const STORAGE_KEY = "demo_auth_session";
 const ONE_HOUR_MS = 60 * 60 * 1000;

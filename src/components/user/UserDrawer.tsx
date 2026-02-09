@@ -1,6 +1,6 @@
 import { Descriptions, Drawer, Space, Typography } from "antd";
 import { useMemo } from "react";
-import { useAuthStore } from "../../store/authStore";
+import { useAuthStore } from "../../modules/auth/store/authStore";
 
 const { Text } = Typography;
 

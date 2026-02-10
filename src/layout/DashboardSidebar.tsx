@@ -6,16 +6,15 @@ import {
   DashboardOutlined,
   DollarOutlined,
   ProjectOutlined,
-  UserOutlined,
-  SettingOutlined,
   LogoutOutlined,
   BarChartOutlined,
   FileOutlined,
   ApartmentOutlined,
 } from "@ant-design/icons";
 import { useMemo } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useSidebarStore } from "../store/sidebarStore";
-import { useAuthStore } from "../store/authStore";
+import { useAuthStore } from "../modules/auth/store/authStore";
 
 const { Sider } = Layout;
 
@@ -24,12 +23,18 @@ type Props = {
 };
 
 export default function DashboardSidebar({ onLogout }: Props) {
+  // TODO: Transformar en un tipo de datos los 'menuItem'
   const { token } = theme.useToken();
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const collapsed = useSidebarStore((s) => s.collapsed);
   const toggle = useSidebarStore((s) => s.toggle);
 
   const session = useAuthStore((s) => s.session);
   const allowed = session?.user.menus ?? [];
+
+  const can = (k: string) => allowed.includes(k as any);
 
   const items = useMemo<MenuProps["items"]>(() => {
     const result: MenuProps["items"] = [
@@ -42,13 +47,12 @@ export default function DashboardSidebar({ onLogout }: Props) {
       { type: "divider" },
     ];
 
-    const can = (k: string) => allowed.includes(k as any);
-
     if (can("dashboard")) {
       result.push({
-        key: "dashboard",
+        key: "/dashboard",
         icon: <DashboardOutlined />,
         label: "Dashboard",
+        onClick: () => navigate("/dashboard"),
       });
     }
 
@@ -59,14 +63,16 @@ export default function DashboardSidebar({ onLogout }: Props) {
         label: "Finanzas",
         children: [
           {
-            key: "finance:summary",
+            key: "/finance/summary",
             icon: <ApartmentOutlined />,
             label: "Resumen",
+            onClick: () => navigate("/finance/summary"),
           },
           {
-            key: "finance:reports",
+            key: "/finance/reports",
             icon: <BarChartOutlined />,
             label: "Reportes",
+            onClick: () => navigate("/finance/reports"),
           },
         ],
       });
@@ -79,33 +85,24 @@ export default function DashboardSidebar({ onLogout }: Props) {
         label: "Proyectos",
         children: [
           {
-            key: "projects:constructions",
+            key: "/projects/constructions",
             icon: <ApartmentOutlined />,
             label: "Construcciones",
+            onClick: () => navigate("/projects/constructions"),
           },
           {
-            key: "projects:reports",
+            key: "/projects/reports",
             icon: <BarChartOutlined />,
             label: "Reportes",
+            onClick: () => navigate("/projects/reports"),
           },
-          { key: "projects:files", icon: <FileOutlined />, label: "Archivos" },
+          {
+            key: "/projects/files",
+            icon: <FileOutlined />,
+            label: "Archivos",
+            onClick: () => navigate("/projects/files"),
+          },
         ],
-      });
-    }
-
-    if (can("users")) {
-      result.push({
-        key: "users",
-        icon: <UserOutlined />,
-        label: "Usuarios",
-      });
-    }
-
-    if (can("settings")) {
-      result.push({
-        key: "settings",
-        icon: <SettingOutlined />,
-        label: "Configuración",
       });
     }
 
@@ -121,7 +118,12 @@ export default function DashboardSidebar({ onLogout }: Props) {
     );
 
     return result;
-  }, [allowed, collapsed, toggle, onLogout]);
+  }, [allowed, collapsed, toggle, onLogout, navigate]);
+
+  const selectedKeys = useMemo(() => {
+    const p = location.pathname;
+    return [p];
+  }, [location.pathname]);
 
   return (
     <Sider
@@ -139,6 +141,7 @@ export default function DashboardSidebar({ onLogout }: Props) {
         mode="inline"
         inlineCollapsed={collapsed}
         items={items}
+        selectedKeys={selectedKeys}
         style={{
           background: "transparent",
           borderInlineEnd: "none",

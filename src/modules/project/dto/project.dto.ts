@@ -25,6 +25,9 @@ export type Project = {
   client: string;
   status: ProjectStatus;
   priority: ProjectPriority;
+  amenities: Amenity[];
+  extras: Extra[];
+  livingunits: LivingUnit[]; //like houses or appartments
 
   // Fechas
   startDate: string; // ISO format
@@ -66,3 +69,37 @@ export type Project = {
 };
 
 export type ProjectFormData = Omit<Project, "id" | "createdAt" | "updatedAt">;
+
+
+export type AmenityType =
+  | "Pileta"
+  | "SUM"
+  | "GYM";
+
+export interface Amenity{
+  type: AmenityType;
+  details?: string;
+}
+
+export type ExtraType =
+  | "CONSULTORIO"
+  | "LOCAL"
+  | "OFICINA";
+
+export interface Extra{
+  type: ExtraType;
+  details?: string;
+}
+
+export type LivingUnitType = "CASA" | "DEPTO" | "DUPLEX";
+export type LivingUnitState = "PLANIFICADA" |"DISPONIBLE" | "VENDIDA_POZO" | "VENDIDA";
+
+export interface LivingUnit { //for example, an appartment
+  code: string;        // ex: "Casa 3", "5A"
+  type: LivingUnitType;
+  areaM2: number;
+  dorms: number;
+  baths: number;
+  state: LivingUnitState;
+  price?: number;
+}

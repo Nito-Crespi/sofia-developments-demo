@@ -10,6 +10,7 @@ import {
   BarChartOutlined,
   FileOutlined,
   ApartmentOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 import { useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -53,6 +54,34 @@ export default function DashboardSidebar({ onLogout }: Props) {
         icon: <DashboardOutlined />,
         label: "Dashboard",
         onClick: () => navigate("/dashboard"),
+      });
+    }
+
+    if (can("employees")) {
+      result.push({
+        key: "employees",
+        icon: <UserOutlined />,
+        label: "Empleados",
+        children: [
+          {
+            key: "/employees/list",
+            icon: <ApartmentOutlined />,
+            label: "Perfiles de Empleados",
+            onClick: () => navigate("/employees/profiles"),
+          },
+          {
+            key: "/employees/create",
+            icon: <FileOutlined />,
+            label: "Agregar Empleados",
+            onClick: () => navigate("/employees/create"),
+          },
+          {
+            key: "/employees/edit",
+            icon: <BarChartOutlined />,
+            label: "Editar/Eliminar Empleados",
+            onClick: () => navigate("/employees/edit"),
+          },
+        ],
       });
     }
 

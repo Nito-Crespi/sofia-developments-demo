@@ -4,7 +4,7 @@ export type MenuKey =
   | "dashboard"
   | "finance"
   | "projects"
-  | "users"
+  | "employees"
   | "settings";
 
 export type UserRecord = {
@@ -21,14 +21,14 @@ export const USERS_DB: UserRecord[] = [
     password: "root",
     role: "admin",
     displayName: "Admin",
-    menus: ["dashboard", "finance", "projects", "users", "settings"],
+    menus: ["dashboard", "finance", "projects", "employees", "settings"],
   },
   {
     username: "toto",
     password: "root",
     role: "finance",
     displayName: "Finance",
-    menus: ["dashboard", "finance", "users", "settings"],
+    menus: ["dashboard", "finance", "employees", "settings"],
   },
   {
     username: "santi",

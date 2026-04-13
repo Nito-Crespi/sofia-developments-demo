@@ -7,6 +7,7 @@ import ProjectsKanbanPage from "../modules/kanban/ProjectsKanbanPage";
 import EmployeeProfilePage from "../modules/employee/pages/EmployeeProfilePage";
 import EmployeeCreatePage from "../modules/employee/pages/EmployeeCreatePage";
 import EmployeeEditPage from "../modules/employee/pages/EmployeeEditPage";
+import HoursComputationDemoPage from "../modules/finance/pages/HoursComputationDemoPage";
 
 function NotFoundPage() {
   return (
@@ -64,6 +65,10 @@ export default function AppRoutes() {
 
           <Route path="/finance/summary" element={<FinanceSummaryPage />} />
           <Route path="/finance/reports" element={<FinanceReportsPage />} />
+          <Route
+            path="/finance/hours-demo"
+            element={<HoursComputationDemoPage />}
+          />
 
 
           <Route path="/employees/profiles" element={<EmployeeProfilePage />} />

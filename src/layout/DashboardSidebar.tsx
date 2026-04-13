@@ -11,6 +11,7 @@ import {
   FileOutlined,
   ApartmentOutlined,
   UserOutlined,
+  ClockCircleOutlined,
 } from "@ant-design/icons";
 import { useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -102,6 +103,12 @@ export default function DashboardSidebar({ onLogout }: Props) {
             icon: <BarChartOutlined />,
             label: "Reportes",
             onClick: () => navigate("/finance/reports"),
+          },
+          {
+            key: "/finance/hours-demo",
+            icon: <ClockCircleOutlined />,
+            label: "Cálculo de jornada (demo)",
+            onClick: () => navigate("/finance/hours-demo"),
           },
         ],
       });

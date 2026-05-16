@@ -4,6 +4,8 @@ import Dashboard from "../layout/Dashboard";
 import Login from "../modules/auth/pages/Login";
 import { useAuthStore } from "../modules/auth/store/authStore";
 import ProjectsKanbanPage from "../modules/kanban/ProjectsKanbanPage";
+import { PeopleForm } from "../modules/people/PeopleForm";
+import { FinancePage } from "../modules/finance/page/FinancePage";
 
 function NotFoundPage() {
   return (
@@ -15,7 +17,7 @@ function NotFoundPage() {
 }
 
 function FinanceSummaryPage() {
-  return <div style={{ padding: 24 }}>Finanzas · Resumen (TODO)</div>;
+  return <FinancePage />;
 }
 function FinanceReportsPage() {
   return <div style={{ padding: 24 }}>Finanzas · Reportes (TODO)</div>;
@@ -61,6 +63,8 @@ export default function AppRoutes() {
 
           <Route path="/finance/summary" element={<FinanceSummaryPage />} />
           <Route path="/finance/reports" element={<FinanceReportsPage />} />
+
+          <Route path="/people" element={<PeopleForm />} />
 
           {/* default privado */}
           <Route path="*" element={<Navigate to="/dashboard" replace />} />

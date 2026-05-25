@@ -4,6 +4,7 @@ import Dashboard from "../layout/Dashboard";
 import Login from "../modules/auth/pages/Login";
 import { useAuthStore } from "../modules/auth/store/authStore";
 import ProjectsKanbanPage from "../modules/kanban/ProjectsKanbanPage";
+import FinanceSummaryPage from "../modules/project/pages/FinanceSummaryPage";
 
 function NotFoundPage() {
   return (
@@ -14,9 +15,6 @@ function NotFoundPage() {
   );
 }
 
-function FinanceSummaryPage() {
-  return <div style={{ padding: 24 }}>Finanzas · Resumen (TODO)</div>;
-}
 function FinanceReportsPage() {
   return <div style={{ padding: 24 }}>Finanzas · Reportes (TODO)</div>;
 }

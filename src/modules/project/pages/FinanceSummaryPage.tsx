@@ -1,7 +1,8 @@
-import { Space, Typography } from "antd";
-import MetricCard, { AmountColor, DotColor, PercentageColor } from "../../../components/MetricCard/MetricCard";
+import { Typography } from "antd";
+import MetricCard from '../../../components/MetricCard/MetricCard';
+import { AmountColor, DotColor, PercentageColor } from '../../../components/MetricCard/constants';
 
-const { Title } = Typography;
+const {  } = Typography;
 
 export default function FinanceSummaryPage() {
   return (

@@ -10,6 +10,8 @@ import {
   BarChartOutlined,
   FileOutlined,
   ApartmentOutlined,
+  UserOutlined,
+  ClockCircleOutlined,
 } from "@ant-design/icons";
 import { useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -56,6 +58,34 @@ export default function DashboardSidebar({ onLogout }: Props) {
       });
     }
 
+    if (can("employees")) {
+      result.push({
+        key: "employees",
+        icon: <UserOutlined />,
+        label: "Empleados",
+        children: [
+          {
+            key: "/employees/list",
+            icon: <ApartmentOutlined />,
+            label: "Perfiles de Empleados",
+            onClick: () => navigate("/employees/profiles"),
+          },
+          {
+            key: "/employees/create",
+            icon: <FileOutlined />,
+            label: "Agregar Empleados",
+            onClick: () => navigate("/employees/create"),
+          },
+          {
+            key: "/employees/edit",
+            icon: <BarChartOutlined />,
+            label: "Editar/Eliminar Empleados",
+            onClick: () => navigate("/employees/edit"),
+          },
+        ],
+      });
+    }
+
     if (can("finance")) {
       result.push({
         key: "finance",
@@ -73,6 +103,12 @@ export default function DashboardSidebar({ onLogout }: Props) {
             icon: <BarChartOutlined />,
             label: "Reportes",
             onClick: () => navigate("/finance/reports"),
+          },
+          {
+            key: "/finance/hours-demo",
+            icon: <ClockCircleOutlined />,
+            label: "Cálculo de jornada (demo)",
+            onClick: () => navigate("/finance/hours-demo"),
           },
         ],
       });

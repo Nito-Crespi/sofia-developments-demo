@@ -4,7 +4,10 @@ import Dashboard from "../layout/Dashboard";
 import Login from "../modules/auth/pages/Login";
 import { useAuthStore } from "../modules/auth/store/authStore";
 import ProjectsKanbanPage from "../modules/kanban/ProjectsKanbanPage";
-import FinanceSummaryPage from "../modules/project/pages/FinanceSummaryPage";
+import EmployeeProfilePage from "../modules/employee/pages/EmployeeProfilePage";
+import EmployeeCreatePage from "../modules/employee/pages/EmployeeCreatePage";
+import EmployeeEditPage from "../modules/employee/pages/EmployeeEditPage";
+import HoursComputationDemoPage from "../modules/finance/pages/HoursComputationDemoPage";
 
 function NotFoundPage() {
   return (
@@ -15,6 +18,9 @@ function NotFoundPage() {
   );
 }
 
+function FinanceSummaryPage() {
+  return <div style={{ padding: 24 }}>Finanzas · Resumen (TODO)</div>;
+}
 function FinanceReportsPage() {
   return <div style={{ padding: 24 }}>Finanzas · Reportes (TODO)</div>;
 }
@@ -59,6 +65,15 @@ export default function AppRoutes() {
 
           <Route path="/finance/summary" element={<FinanceSummaryPage />} />
           <Route path="/finance/reports" element={<FinanceReportsPage />} />
+          <Route
+            path="/finance/hours-demo"
+            element={<HoursComputationDemoPage />}
+          />
+
+
+          <Route path="/employees/profiles" element={<EmployeeProfilePage />} />
+          <Route path="/employees/create" element={<EmployeeCreatePage />} />
+          <Route path="/employees/edit" element={<EmployeeEditPage />} />
 
           {/* default privado */}
           <Route path="*" element={<Navigate to="/dashboard" replace />} />

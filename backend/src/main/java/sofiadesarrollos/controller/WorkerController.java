@@ -3,6 +3,7 @@ package sofiadesarrollos.controller;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.RequiredArgsConstructor;
 import sofiadesarrollos.dto.WorkerAttendanceDto;
 import sofiadesarrollos.dto.WorkerDto;
+import sofiadesarrollos.service.AttendanceImportService;
 import sofiadesarrollos.service.WorkerService;
 
 @RestController
@@ -24,6 +27,7 @@ import sofiadesarrollos.service.WorkerService;
 public class WorkerController {
 
     private final WorkerService workerService;
+    private final AttendanceImportService attendanceImportService;
 
     @GetMapping
     public List<WorkerDto> findAll() {
@@ -60,5 +64,14 @@ public class WorkerController {
     public WorkerAttendanceDto registerAttendance(
             @RequestBody WorkerAttendanceDto attendance) {
         return workerService.save(attendance);
+    }
+
+    @PostMapping(value = "/attendance/import", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<?> importAttendance(
+            @RequestParam("file") MultipartFile file) {
+
+        attendanceImportService.importExcel(file);
+
+        return ResponseEntity.ok().build();
     }
 }

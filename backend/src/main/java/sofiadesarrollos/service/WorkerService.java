@@ -19,6 +19,5 @@ public interface WorkerService {
 
     Double calculateWeeklyWage(String workerId, LocalDate mondayDate);
 
-    // If corresponding day does not exist, it is created as default
     WorkerAttendanceDto save(WorkerAttendanceDto attendance);
 }

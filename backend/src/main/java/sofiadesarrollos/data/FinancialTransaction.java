@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -27,6 +28,7 @@ public class FinancialTransaction {
     private TransactionType type;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private TransactionCategory category;
 
     private String description;

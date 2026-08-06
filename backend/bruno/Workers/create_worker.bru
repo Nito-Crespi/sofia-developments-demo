@@ -1,0 +1,31 @@
+meta {
+  name: Create Worker - Juan Perez
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "firstName": "Juan",
+    "lastName": "Perez",
+    "dni": "30111222",
+    "phone": "3425551234",
+    "hourlyRate": 10000.0,
+    "active": true,
+    "projectId": "{{projectId}}"
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:8080/workers
+}

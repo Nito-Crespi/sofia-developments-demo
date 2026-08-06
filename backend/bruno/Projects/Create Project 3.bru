@@ -1,0 +1,60 @@
+meta {
+  name: Create Project - Infrastructure
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/api/projects
+  body: json
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Road Modernization Project",
+    "code": "PROJ-2024-003",
+    "description": "Highway expansion and modernization - 50km stretch",
+    "location": "Highway Route 5, Regional Expansion",
+    "client": "Ministry of Public Works",
+    "status": "IN_PROGRESS",
+    "priority": "CRITICAL",
+    "startDate": "2023-06-01",
+    "estimatedEndDate": "2024-09-30",
+    "actualEndDate": "2024-10-15",
+    "budget": 15000000.00,
+    "currentCost": 14500000.00,
+    "paymentsReceived": 14000000.00,
+    "estimatedProfit": 800000.00,
+    "constructionType": "INFRASTRUCTURE",
+    "area": 500000.00,
+    "floors": null,
+    "technicalSpecs": "Asphalt overlay, drainage improvements, 4 new interchanges, intelligent traffic system",
+    "mainMaterials": ["Asphalt", "Concrete", "Steel", "Gravel", "Bitumen"],
+    "projectManager": "Roberto Gutierrez",
+    "assignedTeam": ["Manuel Ortiz", "Fernando Lopez", "Javier Diaz", "Carlos Morales"],
+    "permits": [
+      {
+        "name": "Environmental License",
+        "status": "APPROVED",
+        "expiryDate": "2025-12-31"
+      },
+      {
+        "name": "Traffic Management Plan",
+        "status": "APPROVED",
+        "expiryDate": "2025-03-31"
+      },
+      {
+        "name": "Safety Certification",
+        "status": "APPROVED",
+        "expiryDate": "2025-06-30"
+      }
+    ],
+    "notes": "Project completed ahead of schedule. Final inspections in progress.",
+    "documents": ["Route Survey", "Traffic Study", "Budget Report", "Completion Certificate"],
+    "createdBy": "admin"
+  }
+}

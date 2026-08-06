@@ -1,0 +1,54 @@
+meta {
+  name: Create Project - Commercial Space
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/api/projects
+  body: json
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Commercial Office Plaza",
+    "code": "PROJ-2024-002",
+    "description": "5-story office building with retail space",
+    "location": "Business District, Avenue Norte",
+    "client": "Commerce Solutions LLC",
+    "status": "PLANNING",
+    "priority": "MEDIUM",
+    "startDate": "2024-03-01",
+    "estimatedEndDate": "2025-06-30",
+    "budget": 7500000.00,
+    "currentCost": 1000000.00,
+    "paymentsReceived": 500000.00,
+    "estimatedProfit": 1800000.00,
+    "constructionType": "COMMERCIAL",
+    "area": 12000.00,
+    "floors": 5,
+    "technicalSpecs": "LEED certified, smart building systems, parking for 300 vehicles",
+    "mainMaterials": ["Reinforced Concrete", "Aluminum", "Double Glass", "Granite"],
+    "projectManager": "Patricia Sanchez",
+    "assignedTeam": ["Diego Flores", "Rosa Martin", "Antonio Ruiz"],
+    "permits": [
+      {
+        "name": "Zoning Approval",
+        "status": "PENDING",
+        "expiryDate": "2024-12-31"
+      },
+      {
+        "name": "Building Permit",
+        "status": "PENDING",
+        "expiryDate": null
+      }
+    ],
+    "notes": "Awaiting final zoning approval. Client open to schedule adjustments.",
+    "documents": ["Architectural Plans", "Feasibility Study", "Environmental Impact"],
+    "createdBy": "admin"
+  }
+}

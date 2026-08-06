@@ -1,0 +1,54 @@
+meta {
+  name: Create Project - Residential Building
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/api/projects
+  body: json
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Residential Complex Downtown",
+    "code": "PROJ-2024-001",
+    "description": "Modern residential complex with 20 units",
+    "location": "Downtown District, City Center",
+    "client": "Urban Development Corp",
+    "status": "IN_PROGRESS",
+    "priority": "HIGH",
+    "startDate": "2024-01-15",
+    "estimatedEndDate": "2024-12-31",
+    "budget": 5000000.00,
+    "currentCost": 2500000.00,
+    "paymentsReceived": 2000000.00,
+    "estimatedProfit": 1200000.00,
+    "constructionType": "RESIDENTIAL",
+    "area": 8500.50,
+    "floors": 8,
+    "technicalSpecs": "Earthquake resistant structure, energy efficient systems",
+    "mainMaterials": ["Concrete", "Steel", "Glass", "Marble"],
+    "projectManager": "Carlos Rodriguez",
+    "assignedTeam": ["Juan Perez", "Maria Garcia", "Luis Martinez"],
+    "permits": [
+      {
+        "name": "Building Permit",
+        "status": "APPROVED",
+        "expiryDate": "2025-12-31"
+      },
+      {
+        "name": "Environmental Clearance",
+        "status": "APPROVED",
+        "expiryDate": "2025-06-30"
+      }
+    ],
+    "notes": "Priority project for Q1 delivery. Client requires weekly updates.",
+    "documents": ["Site Plan", "3D Model", "Budget Breakdown"],
+    "createdBy": "admin"
+  }
+}

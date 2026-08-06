@@ -1,0 +1,30 @@
+meta {
+  name: Create Expense
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/transactions
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+  "date": "2026-07-11",
+  "amount": 125000.50,
+  "type": "EXPENSE",
+  "category": "MATERIALS",
+  "projectId": "{{projectId}}",
+  "description": "Concrete purchase"
+  }
+}
+
+vars:pre-request {
+  projectId: c3593358-8a88-4c40-a107-fd4e179b9f54
+}

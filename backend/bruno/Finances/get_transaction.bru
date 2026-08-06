@@ -1,0 +1,15 @@
+meta {
+  name: Get Transaction
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:8080/transactions/{{transactionId}}
+  body: none
+  auth: none
+}
+
+vars:pre-request {
+  transactionId: f2b05810-9959-4219-b383-2cba3d026352
+}

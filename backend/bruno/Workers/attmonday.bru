@@ -1,0 +1,30 @@
+meta {
+  name: Attendance Monday
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/attendance
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "workerId": "{{workerId}}",
+    "date": "2026-06-21",
+    "startTime": "09:00:00",
+    "endTime": "17:00:00",
+    "mealConsumed": true
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:8080/workers
+  workerId: 54eb66e3-0986-4772-beb3-41bc1c30271d
+}

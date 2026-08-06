@@ -1,0 +1,20 @@
+meta {
+  name: Calculate Weekly Wage
+  type: http
+  seq: 99
+}
+
+get {
+  url: {{baseUrl}}/weekly-wage?mondayDate=2026-06-21&workerId=54eb66e3-0986-4772-beb3-41bc1c30271d
+  body: none
+  auth: none
+}
+
+params:query {
+  mondayDate: 2026-06-21
+  workerId: 54eb66e3-0986-4772-beb3-41bc1c30271d
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:8080/workers
+}

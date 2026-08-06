@@ -8,6 +8,7 @@ import EmployeeProfilePage from "../modules/employee/pages/EmployeeProfilePage";
 import EmployeeCreatePage from "../modules/employee/pages/EmployeeCreatePage";
 import EmployeeEditPage from "../modules/employee/pages/EmployeeEditPage";
 import HoursComputationDemoPage from "../modules/finance/pages/HoursComputationDemoPage";
+import FinancialDashboardPage from "../modules/finance/pages/FinancialDashboardPage";
 
 function NotFoundPage() {
   return (
@@ -19,7 +20,7 @@ function NotFoundPage() {
 }
 
 function FinanceSummaryPage() {
-  return <div style={{ padding: 24 }}>Finanzas · Resumen (TODO)</div>;
+  return <FinancialDashboardPage />;
 }
 function FinanceReportsPage() {
   return <div style={{ padding: 24 }}>Finanzas · Reportes (TODO)</div>;

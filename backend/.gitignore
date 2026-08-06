@@ -13,3 +13,5 @@ target/
 .vscode/
 
 .env
+
+bruno/
